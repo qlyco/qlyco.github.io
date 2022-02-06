@@ -1,5 +1,3 @@
-# qlyco
-
 Site is under ***maintenance***.  
 Please check back later.
 
