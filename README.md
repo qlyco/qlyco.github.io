@@ -1,3 +1,3 @@
-# qlyco.github.io
+# qlyco
 
 qlyco website
