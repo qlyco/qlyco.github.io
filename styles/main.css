@@ -1,0 +1,235 @@
+:root {
+    --clr-dark: 51, 51, 51;
+    --clr-light: 253, 253, 253;
+    --clr-darker: 34, 34, 34;
+    --clr-dimlight: 244, 244, 244;
+    --clr-accent-orange: 223, 146, 142;
+    --clr-accent-blue: 134, 165, 217;
+
+    --primary-bg: var(--clr-light);
+    --secondary-bg: var(--clr-dimlight);
+    --primary-fg: var(--clr-dark);
+    --secondary-fg: var(--clr-darker);
+    --accent: var(--clr-accent-orange);
+}
+
+* {
+    font-family: "Rubik", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(var(--primary-bg));
+    color: rgb(var(--primary-fg));
+    font-size: 2.4vmin;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > * {
+    padding: .25em 2em;
+}
+
+body > * > * {
+    width: 80%;
+    margin-inline: auto;
+}
+
+hr {
+    background-color: rgb(var(--primary-fg));
+    border: .08em solid rgb(var(--primary-fg));
+    border-radius: 8em;
+    opacity: .25;
+    margin: 0px;
+}
+
+.footer hr {
+    width: 100%;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.light {
+    font-weight: 100;
+}
+
+.header {
+    background-color: rgba(var(--secondary-bg), .5);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}
+
+.main {
+    flex-grow: 1;
+    min-height: 100vh;
+}
+
+.main.centered {
+    display: grid;
+    place-items: center;
+}
+
+.centered > .contents {
+    width: fit-content;
+    max-width: 80%;
+    text-wrap: pretty;
+}
+
+.short {
+    max-width: 60ch;
+}
+
+.footer {
+    background-color: rgba(var(--secondary-bg), .5);
+    backdrop-filter: blur(8px);
+    padding: 0px;
+    /*padding-block-start: .5em;*/
+    font-size: 1em;
+}
+
+.footer > nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5em;
+    margin-block: .5em;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: .25em 2em;
+    margin-block-end: .5em;
+}
+
+.footer > nav > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1em;
+    flex: 1;
+}
+
+.footer > nav > div > div > span {
+    font-weight: 600;
+}
+
+.footer > nav li::before{
+    content: "ー ";
+}
+
+.footer > nav ul {
+    list-style-type: none;
+    padding-inline: 0px;
+    list-style-position: outside;
+    font-weight: 100;
+    /*padding-block: 0.5em;*/
+    margin-block-start: .5em;
+    margin-block-end: 0.25em;
+}
+
+.footer > nav li {
+    padding: .25em 0px;
+}
+
+.bar {
+    background-color: #000;
+    color: #fff;
+    margin-block-start: 0px;
+    text-align: center;
+    font-weight: 100;
+    font-size: .75em;
+    width: 100%;
+    /*margin-block-start: .5em;*/
+    padding: .25em 2em;
+    position: sticky;
+    bottom: 0px;
+}
+
+.header > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.branding {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(var(--primary-fg));
+}
+
+.footer .branding {
+    margin-block-end: 1em;
+}
+
+.logo {
+    height: 1em;
+    width: auto;
+    max-height: 100%;
+    transform: rotateZ(30deg);
+    margin-inline-end: .25em;
+    filter: invert(1);
+}
+
+nav a {
+    color: rgb(var(--primary-fg));
+    text-decoration: none;
+    transition: color .5s;
+}
+
+nav a:hover {
+    color: rgb(var(--accent));
+}
+
+nav a.active {
+    font-weight: bold;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-bg: var(--clr-dark);
+        --secondary-bg: var(--clr-darker);
+        --primary-fg: var(--clr-light);
+        --secondary-fg: var(--clr-dimlight);
+        --accent: var(--clr-accent-blue);
+    }
+
+    hr {
+        background-color: rgb(var(--secondary-fg));
+        border: .08em solid rgb(var(--secondary-fg));
+    }
+
+    .logo {
+        filter: none;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    body {
+        font-size: 18px;
+    }
+
+    body > * > * {
+        width: 100%;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .footer > nav {
+        flex-direction: column;
+    }
+}
